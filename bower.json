@@ -6,7 +6,7 @@
     "victortarus"
   ],
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://github.com/victortarus/lookup",
   "ignore": [
     "**/.*",
     "node_modules",
