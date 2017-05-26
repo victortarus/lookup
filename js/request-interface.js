@@ -8,14 +8,11 @@ $(document).ready(function(){
     var UserName =$("#username").val();
     $('#username').val('');
     $.get('https://api.github.com/users/'+UserName+'?access_token=' + apiKey).then(function (response) {
-        console.log(response);
-        for (var i = 0; i < response.length; i++) {
-            $(".searched").text("These are " + UserName + "s project ");
-            $("#found").append("<li>You searched for " + response[i].name + "</li>")
-        }
-        // on fail the error will be displayed
+         console.log(response);
+         $('.searched').text('You have searched for '+ UserName+'.');
+
     }).fail(function (error) {
-        $("#founduser").append(error.responseJSON.message);
+        $("#found").append(error.responseJSON.message);
     });
 
   });
