@@ -1,4 +1,4 @@
-.env
-/node_modules
-/bower_components
-/scss
+.env/
+node_modules/
+bower_components/
+scss/

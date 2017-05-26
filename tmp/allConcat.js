@@ -14,7 +14,19 @@ $(document).ready(function(){
     }).fail(function (error) {
         $("#found").append(error.responseJSON.message);
     });
+       var repos=$(".repo").val();
+       $('.repo').val();
+       $.get('https://api.github.com/users/'+UserName+ '?access_token='+apiKey).then(function(response){
 
+         for(var i=0;i<response.length+1;i++){
+           if (response[i].description===null) {
+             displayrepos(response[i].name,response[i].description.response.);
+           }
+
+         }.fail(function(error){
+           $(".repo").append(error.responseJSON.message);
+         })
+       })
   });
   });
 
