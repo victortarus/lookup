@@ -1,25 +1,27 @@
-var UserSearch =require('./js/request.js').requestmodule;
+var apiKey = require('./../.env').apiKey;
+var Load = require('./../js/git.js').loadModule;
+var Repos = require('./../js/git.js').reposModule;
+// to search about users
+$(document).ready(function() {
+  $('#search').click(function() {
+    var name = $('#username').val();
+    $('#username').val("");
+    var final = new Load();
+    var c = final.loadUser(name);
 
-var displayResults=function(username,publicRepo){
-  $('#found').show();
-  $("#repo").text(foundRepo);
+  });
+});
+// this is to find the repo's name and its description
+function displayRepos(repoName, repoDescription) {
+  $('#repos').append("<li><h4>" + repoName + "</h4><br>" + repoDescription + "<br>");
 }
-
-function displayResults(description){
-  if(description ===null){
-return"none found";
-  }else
-  {
-      return description;
-  }
-}
-
-$(document).ready(function(){
-  $('#search').submit(function(event){
-    currentUserSearch=new UserSearch();
-    var username =$('#username').val();
-    $('username').val();
-    currentUserSearch.userLookup(username,displayResults)
-    currentUserSearch.repoLookup(username,foundRepo);
-  })
+$(document).ready(function() {
+  $('#username').submit(function(event) {
+    var gitrepos = new Repos();
+    var gitname = new Load();
+    var username = $('#username').val('');
+    var rp = new repos();
+    var f = rp.loadRepos(username, displayRepos);
+    event.preventDefault();
+  });
 });
