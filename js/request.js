@@ -1,39 +1,33 @@
 var apiKey = require('./../.env').apiKey;
 
-Load = function() {
+function git() {}
 
-};
+function displayInfo() {}
 
-Repos = function (){
-
-};
-
-Load.prototype.loadUser = function(name) {
-  $.get('https://api.github.com/users/'+ name + '?access_token=' + apiKey).then(function(response) {
-    console.log(response);
-    $('#showdetails').append("<li>" + response.public_repos  +"</li>");
-
+git.prototype.getRepos = function(username) {
+  $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function(response) {
+    $("#showRepos").text(response.name); // take to back end
+    event.preventDefault();
   }).fail(function(error) {
-    console.log(error.responseJSON.message);
+
+    console.log("errorrepo");
   });
 };
+// Display repos
+displayInfo.prototype.getName = function(username, displayRepos) {
+  $.get('https://api.github.com/users/' + username + '/repos?access_token=' + apiKey).then(function(response) {
+    for (var i = 0; i < response.length + 1; i++) {
+      if (response[i].description === null) {
+        response[i].description = 'No description in repo';
+      }
+      displayRepos(response[i].name, response[i].d, response[i].created_at);
+    }
+  }).fail(function(error) {
+
+    console.log("errorname");
+  });
 
 
-
-
-Repos.prototype.loadRepos = function (name ,displayrepos){
-$.get('https://api.github.com/users/' + name + '/repos?access_token=' + apiKey).then(function (response) {
-  for (var i = 0; i <= response.length ; i++) {
-              if (response[i].description === null) {
-                  response[i].description = 'No description in repo';
-              } else {
-                  displayRepos(response[i].name, response[i].description);
-              }
-
-          }
-      }).fail(function (error) {
-          console.log(error.responseJSON.message);
-      });
-  };
-exports.reposModule= Repos;
-exports.loadModule= Load;
+};
+exports.reposModule = git;
+exports.displayInfoModule = displayInfo;

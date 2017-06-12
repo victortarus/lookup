@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Git hub stalker</title>
-    <link rel="stylesheet" href="build/css/vendor.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="scss/styles.scss">
-    <script src="build/js/vendor.min.js"></script>
-    <script type="text/javascript" src="build/js/app.js"></script>
-  </head>
-  <body>
-    <div class="container-fluid  ">
-      <div class="whole">
-      <div class=" col-md-12 top">
-      <h1>Git !</h1>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="build/css/vendor.css">
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="build/js/app.js"></script>
+
+  <title>Git-User-Lookup</title>
+</head>
+
+<body>
+  <div class="header">
+    <h1>Stalk your peers <i class="fa fa-smile-o"></i></h1>
+  <div>
+      <div class="main">
+        <label for="username">Search:</label>
+        <input id="username" type="text" placeholder="Enter a name">
+        <button class="btn btn-success" id="repoInfo">Submit</button>
+        <h2> User info </h2>
+        <ol id="showRepos"></ol>
+        <h3> Repository information</h3>
+        <ol id="showName"></ol>
     </div>
-      <img src="github.png" alt="">
+</body>
 
-
-    <div class="container">
-      <div class=" col-md-12 top">
-        <div class="details">
-       <h2>Enter Your Git-Hub name</h2>
-      <label for="location"></label>
-      <input id="username" type="text">
-      <button class="btn-success" id="search">search</button><br><br>
-      </div>
-    <h5>  GITHUB NAME</h5> <span id = "showdetails"></span><br><br>
-       <h5>HERE ARE. YOUR REPOS</h5>
-        <ul id = "repos"></ul>
-
-</div>
-</div>
-
-    </div>
-  </div>
-  </body>
 </html>

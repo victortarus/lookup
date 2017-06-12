@@ -1,27 +1,21 @@
 var apiKey = require('./../.env').apiKey;
-var Load = require('./../js/git.js').loadModule;
-var Repos = require('./../js/git.js').reposModule;
-// to search about users
-$(document).ready(function() {
-  $('#search').click(function() {
-    var name = $('#username').val();
-    $('#username').val("");
-    var final = new Load();
-    var c = final.loadUser(name);
+var git = require('./../js/request.js').reposModule;
+var displayed = require('./../js/request.js').displayInfoModule;
 
-  });
-});
-// this is to find the repo's name and its description
-function displayRepos(repoName, repoDescription) {
-  $('#repos').append("<li><h4>" + repoName + "</h4><br>" + repoDescription + "<br>");
-}
+
+
 $(document).ready(function() {
-  $('#username').submit(function(event) {
-    var gitrepos = new Repos();
-    var gitname = new Load();
-    var username = $('#username').val('');
-    var rp = new repos();
-    var f = rp.loadRepos(username, displayRepos);
+  $('#repoInfo').click(function() {
+    var getRepoInfo = new git();
+    var getdisplayed = new displayed();
+    var username = $('#username').val();
+    $('#username').val("");
+    getRepoInfo.getRepos(username);
+    getdisplayed.getName(username, displayRepos);
     event.preventDefault();
   });
+  var displayRepos = function(repoName, repoDescription, $time) {
+    $('#showName').append("<li><h4>" + repoName + "</h4><br>"
+    + repoDescription + "<br> Date of creation: " + $time + "</li>");
+  }
 });
