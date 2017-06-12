@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Git hub stalker</title>
+    <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="scss/styles.scss">
+    <script src="build/js/vendor.min.js"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid  ">
+      <div class="whole">
+      <div class=" col-md-12 top">
+      <h1>Git !</h1>
+    </div>
+      <img src="github.png" alt="">
 
-<head>
-  <meta charset="utf-8">
-  <title>Gitlookup</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="scss/style.css">
-  <script src="build/js/app.js"></script>
 
-</head>
-
-<body>
-  <div class="container ">
-    <h1 id="header">GitHub Lookup</h1>
-    <h3>Now you enter any one who you would like to search in the form below</h3>
-    <form id="search">
-      <div class="form-group">
-        <label for="username">User Name:</label>
-        <input id="username" class="form-control" type="text" placeholder="Enter a name">
+    <div class="container">
+      <div class=" col-md-12 top">
+        <div class="details">
+       <h2>Enter Your Git-Hub name</h2>
+      <label for="location"></label>
+      <input id="username" type="text">
+      <button class="btn-success" id="search">search</button><br><br>
       </div>
-      <button type="submit" class="btn btn-success" id="pata">Search</button>
-    </form>
+    <h5>  GITHUB NAME</h5> <span id = "showdetails"></span><br><br>
+       <h5>HERE ARE. YOUR REPOS</h5>
+        <ul id = "repos"></ul>
 
-    <h4 class="Found"></h4>
-    <div id="repo">
-      <h3>Found repo</h3>
+</div>
+</div>
 
     </div>
-
   </div>
-</body>
-
+  </body>
 </html>

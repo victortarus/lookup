@@ -1,6 +1,6 @@
 var apiKey = require('./../.env').apiKey;
-var Load = require('./../js/git.js').loadModule;
-var Repos = require('./../js/git.js').reposModule;
+var Load = require('./../js/request.js').loadModule;
+var Repos = require('./../js/request.js').reposModule;
 // to search about users
 $(document).ready(function() {
   $('#search').click(function() {
